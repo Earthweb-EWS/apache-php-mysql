@@ -2,7 +2,7 @@ name: build our image
 
 on:
   push:
-    branches: master
+    branches: main
 
 jobs:
   build:
@@ -16,7 +16,4 @@ jobs:
         with:
           version: latest
       - name: build the image
-      run: |
-        docker buildx build \
-          --tag earthweb/apache-php-mysql:latest \
-          --platform linux/amd64,linux/arm/v7,linux/arm64 .
+      - run: docker buildx build --tag earthweb/apache-php-mysql:latest --platform linux/amd64,linux/arm/v7,linux/arm64 .
